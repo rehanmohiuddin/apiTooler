@@ -1,19 +1,36 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MediaQueryPlugin = require("media-query-plugin");
 
 module.exports = {
   mode: "development",
   entry: path.join(__dirname, "src", "index.tsx"),
+  devServer: {
+    historyApiFallback: true,
+  },
   output: {
+    publicPath: "/",
     path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [
       {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          "file-loader",
+          {
+            loader: "image-webpack-loader",
+            options: {
+              bypassOnDebug: true, // webpack@1.x
+              disable: true, // webpack@2.x and newer
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(sass|css|scss)$/,
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
         test: /\.?js$/,
@@ -37,7 +54,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "styles.css",
+      filename: "[name].css",
       chunkFilename: "styles.css",
     }),
     new HtmlWebpackPlugin({

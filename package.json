@@ -15,9 +15,13 @@
     "@reduxjs/toolkit": "^1.8.2",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
+    "@uiw/react-textarea-code-editor": "^2.0.3",
+    "axios": "^0.27.2",
+    "image-webpack-loader": "^8.1.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-redux": "^8.0.2",
+    "react-router-dom": "^6.3.0",
     "redux-logger": "^3.0.6"
   },
   "devDependencies": {
@@ -28,7 +32,9 @@
     "autoprefixer": "^10.4.7",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "media-query-plugin": "^1.5.0",
     "mini-css-extract-plugin": "^2.6.1",
     "postcss-cli": "^9.1.0",
     "postcss-loader": "^7.0.0",

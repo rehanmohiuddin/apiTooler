@@ -1,12 +1,12 @@
-import React from "react";
-import Header from "./components/Header";
-import "./styles.css";
+import React, { FormEvent, useMemo, useRef, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Pages";
 
 function App() {
   return (
-    <div className="flex">
-      <div className="text-red-600">Hello World</div>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
   );
 }
 
